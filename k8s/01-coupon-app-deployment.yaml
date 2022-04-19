@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coupon-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      role: coupon
+  template:
+    metadata:
+      labels:
+        role: coupon
+    spec:
+      containers:
+      - name: coupon-challenge
+        image: gonzager/coupon:latest
+        imagePullPolicy: Always        
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            memory: "1024Mi"
+            cpu: "200m"
+          limits:
+            memory: "3072Mi"
+            cpu: "1500m"
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 30
+        # Configure the readiness probe
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: 8080
+          initialDelaySeconds: 60
+          periodSeconds: 60

@@ -7,19 +7,19 @@ app:
     version: v1
 
 spring:
-  datasource:
-    url: jdbc:postgresql://db-postgresql-sfo2-30825-do-user-11392574-0.b.db.ondigitalocean.com:25060/defaultdb
-    driverClassName: org.postgresql.Driver
-    username: doadmin
-    password: AVNS_DDYMeXrgKs0dpZI
-#  h2:
-#    console:
-#      enabled: true
 #  datasource:
-#    url: jdbc:h2:mem:coupondb
-#    driverClassName: org.h2.Driver
-#    username: sa
-#    password:
+#    url: jdbc:postgresql://mypostgres:5432/coupon
+#    driverClassName: org.postgresql.Driver
+#    username: postgres
+#    password: 1qaz!QAZ
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:coupondb
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
 
   jpa:
     open-in-view: true
@@ -28,7 +28,7 @@ spring:
     show-sql: true
     properties:
       hibernate.format_sql: true
-      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+#      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
 
 management:
   endpoint:

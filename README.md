@@ -105,7 +105,7 @@ Response:
     }
 ]
 ```
-##Readiness && Liveness
+## Readiness && Liveness
 Para comprobar cuando la apliaciónes esta lista y el estado de salud se exponen los siguientes endpoinds    
 ```bash
 GET /actuator/health/liveness

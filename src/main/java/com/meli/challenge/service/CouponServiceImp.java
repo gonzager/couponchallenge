@@ -26,6 +26,11 @@ public class CouponServiceImp implements CouponService {
     @Autowired
     FavouriteService favoriteService;
 
+    /***
+     * Dada un Coupon retorna un nuevo Coupon con los items optimizados
+     * @param coupon
+     * @return Coupon
+     */
     @Override
     public Coupon  getMaximizedCoupon(Coupon coupon) {
 

@@ -14,6 +14,12 @@ import java.util.stream.Collectors;
 @Slf4j
 @Component
 public class MaximizerImp implements Maximizer{
+    /***
+     *
+     * @param items
+     * @param amount
+     * @return List<ItemPrice>
+     */
     @Override
     public List<ItemPrice> process(List<ItemPrice> items, BigDecimal amount) {
         return processKnapSack(
@@ -25,6 +31,15 @@ public class MaximizerImp implements Maximizer{
         );
     }
 
+    /***
+     * Algorimo KnapSack busca la mejor solución entre un conjunto finito de posibles soluciones a un problema, es un problema de optimización combinatorias
+     * @param tope
+     * @param size
+     * @param wt
+     * @param val
+     * @param ids
+     * @return List<ItemPrice>
+     */
     private List<ItemPrice> processKnapSack(int tope, int size, List<Integer> wt, List<Integer> val, List<ItemPrice> ids )
     {
         int i, w;

@@ -28,6 +28,11 @@ public class CouponRepositoryImp implements CouponRepository{
     @Autowired
     private Environment env;
 
+    /***
+     * Consume asincronicamente los items de la URL de MELI
+     * @param item_id
+     * @return CompletableFuture<ItemPrice>
+     */
     @Cacheable(value = "itemsmeli", key= "#item_id")
     @Override
     public CompletableFuture<ItemPrice> getItemPriceAsync(String item_id) {

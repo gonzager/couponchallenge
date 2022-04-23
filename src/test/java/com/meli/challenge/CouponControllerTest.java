@@ -41,8 +41,6 @@ public class CouponControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.amount", greaterThan(0)))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.amount", lessThan(50000)))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.items_ids", hasSize(1))
                 );
     }

@@ -12,6 +12,7 @@ import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
 
 
+import java.math.BigDecimal;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
 
@@ -43,7 +44,7 @@ public class CouponRepositoryImp implements CouponRepository{
                     return restTemplate.getForObject(env.getProperty(ITEM_URL), ItemPrice.class, item_id);
                 } catch (HttpClientErrorException | HttpServerErrorException httpClientOrServerExc)  {
                     log.error("Request Status Code: {} item_id: {}", httpClientOrServerExc.getStatusCode(), item_id);
-                    return null;
+                    return new ItemPrice("-1",new BigDecimal(0),"null");
                 }
             }
         });

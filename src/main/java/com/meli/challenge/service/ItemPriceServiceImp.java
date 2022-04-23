@@ -24,7 +24,6 @@ public class ItemPriceServiceImp implements ItemPriceService{
 
         return  futures.stream()
                 .map(CompletableFuture::join)
-                .filter(e->e != null)
                 .filter(e->e.getStatus().equals("active"))
                 .collect(Collectors.toList());
 

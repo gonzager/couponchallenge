@@ -14,4 +14,5 @@ public class ItemPrice {
 
     private String id;
     private BigDecimal price ;
+    private String status;
 }

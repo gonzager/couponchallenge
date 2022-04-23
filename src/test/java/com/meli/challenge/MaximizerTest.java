@@ -24,11 +24,11 @@ public class MaximizerTest {
 
         List<ItemPrice> maximized_items = maximizer.process(
             Arrays.asList(
-                    new ItemPrice("MLA1",new BigDecimal(100)),
-                    new ItemPrice("MLA2",new BigDecimal(210)),
-                    new ItemPrice("MLA3",new BigDecimal(260)),
-                    new ItemPrice("MLA4",new BigDecimal(80)),
-                    new ItemPrice("MLA5",new BigDecimal(90))
+                    new ItemPrice("MLA1",new BigDecimal(100),"active"),
+                    new ItemPrice("MLA2",new BigDecimal(210), "active"),
+                    new ItemPrice("MLA3",new BigDecimal(260), "active"),
+                    new ItemPrice("MLA4",new BigDecimal(80), "active"),
+                    new ItemPrice("MLA5",new BigDecimal(90), "active")
             ),new BigDecimal(500));
 
         List<String> maximized_ids = maximized_items.stream().map(i -> i.getId()).collect(Collectors.toList());
@@ -42,11 +42,11 @@ public class MaximizerTest {
 
         List<ItemPrice> maximized_items = maximizer.process(
                 Arrays.asList(
-                        new ItemPrice("MLA1",new BigDecimal(100)),
-                        new ItemPrice("MLA2",new BigDecimal(210)),
-                        new ItemPrice("MLA3",new BigDecimal(260)),
-                        new ItemPrice("MLA4",new BigDecimal(80)),
-                        new ItemPrice("MLA5",new BigDecimal(90))
+                        new ItemPrice("MLA1",new BigDecimal(100),"active"),
+                        new ItemPrice("MLA2",new BigDecimal(210), "active"),
+                        new ItemPrice("MLA3",new BigDecimal(260), "active"),
+                        new ItemPrice("MLA4",new BigDecimal(80), "active"),
+                        new ItemPrice("MLA5",new BigDecimal(90), "active")
                 ),new BigDecimal(500));
 
         BigDecimal amount = maximized_items.stream().reduce(new BigDecimal(0), (a,b)-> a.add(b.getPrice()),BigDecimal::add);

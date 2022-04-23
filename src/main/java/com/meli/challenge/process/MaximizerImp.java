@@ -66,7 +66,7 @@ public class MaximizerImp implements Maximizer{
         for (i = size; i > 0 && res > 0; i--) {
             if (res != K[i - 1][w])
             {
-                items.add(new ItemPrice(ids.get(i - 1).getId(), ids.get(i - 1).getPrice()));
+                items.add(new ItemPrice(ids.get(i - 1).getId(), ids.get(i - 1).getPrice(), ids.get(i - 1).getStatus()));
                 log.debug("Item: {} amount: {}",ids.get(i - 1).getId(), ids.get(i - 1).getPrice() );
                 res = res - val.get(i - 1);
                 w = w - wt.get(i - 1);
